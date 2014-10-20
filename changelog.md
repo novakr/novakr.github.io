@@ -4,6 +4,7 @@
 - **0.0.2 : 2014.10.20**
     - **Features**
     - 安装ruby,python,jekyll环境，并且从github上找到博客模板
+    - 使用jekyll建立博客页startup
     
 - **0.0.1 : 2014.10.17**
 	- **Features**
