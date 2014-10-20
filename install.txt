@@ -1,0 +1,80 @@
+安装ruby
+rubyinstaller-2.1.3-x64
+
+#检查是否安装成功
+ruby --version
+
+gem update --system
+
+可能已经被墙
+PS D:\Ruby21-x64> gem update --system
+ERROR:  While executing gem ... (Gem::RemoteFetcher::FetchError)
+    Errno::ETIMEDOUT: A connection attempt failed because the connected party did not properly respond after a period of
+or "s3.amazonaws.com" port 443 (https://api.rubygems.org/specs.4.8.gz)
+
+PS D:\Ruby21-x64> gem sources --remove https://rubygems.org/
+https://rubygems.org/ removed from sources
+PS D:\Ruby21-x64> gem sources -a http://ruby.taobao.org/
+http://ruby.taobao.org/ added to sources
+PS D:\Ruby21-x64> gem sources -l
+*** CURRENT SOURCES ***
+
+http://ruby.taobao.org/
+
+PS D:\Ruby21-x64> gem update --system
+##安装Devkit
+官网下载 ：DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe
+安装解压d:\rubydevkit
+
+#安装jekyll
+PS D:\rubydevkit> ruby .\dk.rb init
+PS D:\rubydevkit> ruby dk.rb install
+[INFO] Installing 'd:/Ruby21-x64/lib/ruby/site_ruby/2.1.0/rubygems/defaults/operating_system.rb'
+[INFO] Installing 'd:/Ruby21-x64/lib/ruby/site_ruby/devkit.rb'
+PS D:\rubydevkit> gem install jekyll
+Temporarily enhancing PATH to include DevKit...
+Building native extensions.  This could take a while...
+Successfully installed yajl-ruby-1.1.0
+Fetching: posix-spawn-0.3.9.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed posix-spawn-0.3.9
+Fetching: pygments.rb-0.6.0.gem (100%)
+Successfully installed pygments.rb-0.6.0
+Fetching: colorator-0.1.gem (100%)
+Successfully installed colorator-0.1
+Fetching: safe_yaml-1.0.4.gem (100%)
+Successfully installed safe_yaml-1.0.4
+Fetching: mercenary-0.3.4.gem (100%)
+Successfully installed mercenary-0.3.4
+Fetching: kramdown-1.4.2.gem (100%)
+Successfully installed kramdown-1.4.2
+Fetching: liquid-2.6.1.gem (100%)
+Successfully installed liquid-2.6.1
+Fetching: jekyll-2.4.0.gem (100%)
+Successfully installed jekyll-2.4.0
+Parsing documentation for yajl-ruby-1.1.0
+Installing ri documentation for yajl-ruby-1.1.0
+Parsing documentation for posix-spawn-0.3.9
+Installing ri documentation for posix-spawn-0.3.9
+Parsing documentation for pygments.rb-0.6.0
+Installing ri documentation for pygments.rb-0.6.0
+Parsing documentation for colorator-0.1
+Installing ri documentation for colorator-0.1
+Parsing documentation for safe_yaml-1.0.4
+Installing ri documentation for safe_yaml-1.0.4
+Parsing documentation for mercenary-0.3.4
+Installing ri documentation for mercenary-0.3.4
+Parsing documentation for kramdown-1.4.2
+Installing ri documentation for kramdown-1.4.2
+Parsing documentation for liquid-2.6.1
+Installing ri documentation for liquid-2.6.1
+Parsing documentation for jekyll-2.4.0
+Installing ri documentation for jekyll-2.4.0
+Done installing documentation for yajl-ruby, posix-spawn, pygments.rb, colorator, safe_yaml, mercenary, kramdown, liquid
+9 gems installed
+
+成功安装
+PS D:\rubydevkit> jekyll --version
+jekyll 2.4.0
+
+
