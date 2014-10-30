@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 曾金荣的博客
+title: 刘冰的博客
 tagline: 这，是一个寂寞的世界……
 ---
 {% include JB/setup %}
