@@ -1,14 +1,12 @@
 ---
+date: 2014-10-23 12:44:30+00:00
 layout: post
 title: mongodb分片与复本集配置
-category : jekyll
-tagline: "Supporting tagline"
-tags : [mongodb,db]
-published: true
+thread: 164
+categories: db
+tags:  mongodb db
 ---
-{% include JB/setup %}
-# mongodb分片与复本集配置
----
+
  很久以前就买了一本mongodb权威指南的书，看了几个章节，然后就放在书架上睡觉了。最近银监局项目上由于数据量太大（客户数据单表几亿条，10几个行的数据，以后会每天定时更新增加），现在用的mysql感觉数据查询性能方面还是有点压力。趁着之前版本提交演示完，下一次需求，bug修改还没有来之前重新看了一下monodb的书。期待用nosql数据库可以解决目前这个大数据问题。只要设想用mongod分片与复本，对大的表数据进行分片划分,做一个分布式数据库集群。  
 
 废话不说，先看环境配置这个只是在本地测试  
