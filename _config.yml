@@ -1,5 +1,5 @@
 markdown: rdiscount
-permalink: /:title/
+permalink: /:year/:month/:day/:title.html
 url: 
 name: novakr
 author: novakr
