@@ -19,7 +19,7 @@ tar包 [https://github.com/apache/hadoop/archive/release-2.5.0.tar.gz](https://g
 	/opt/softwares #软件
 	/opt/tools #工具
 
-使用sftp上传相关文件到虚拟机，看图：![](/image/hadoop-sftp.png)
+使用sftp上传相关文件到虚拟机，看图：![](/image/hadoop-sftp.jpg)
 
 文件上传成功后，解压hadoop的tar包：
 
