@@ -290,7 +290,7 @@ tar包 [https://github.com/apache/hadoop/archive/release-2.5.0.tar.gz](https://g
 	[zengjr@hadoop-zengjr native]$ file libhadoop.so.1.0.0
 	libhadoop.so.1.0.0: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, not stripped
 
-ELF 64-bit 这就是64位的了.ps虽说现在hadoop中已经有64位链接文件了，还是可能会有问题的
+ELF 64-bit 这就是64位的了.ps虽说现在hadoop中已经有64位链接文件了，还是可能会有[问题](/2014/12/17/hadoop-so.html)的
 
 ##生成插件
 	[zengjr@hadoop-zengjr hadoop-maven-plugins]$ pwd
