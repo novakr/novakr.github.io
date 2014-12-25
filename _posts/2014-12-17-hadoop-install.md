@@ -1,7 +1,7 @@
 ---
 date: 2014-12-17 17:40:29 
 layout: post
-title: hadoop 64位安装编译
+title: hadoop之64位安装编译
 categories: hadoop
 tags:  hadoop
 ---
