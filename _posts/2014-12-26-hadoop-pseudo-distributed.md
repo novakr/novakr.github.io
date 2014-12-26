@@ -63,7 +63,7 @@ tags:  hadoop
 	[zengjr@hadoop-zengjr hadoop-2.5.0]$ sbin/hadoop-daemon.sh start secondarynamenode
 	starting secondarynamenode, logging to /opt/modules/hadoop-2.5.0/logs/hadoop-zengjr-secondarynamenode-hadoop-zengjr.xiaoqee.com.out
 
-查看hdfs文件系统web页面
+查看namenode web页面
 ![](/image/hadoop-pseudo-distributed-web.png)
 
 日志文件命名规则:
@@ -71,3 +71,5 @@ tags:  hadoop
 
 	-rw-rw-r-- 1 zengjr zengjr   386825 Dec 16 18:10 hadoop-zengjr-datanode-hadoop-zengjr.xiaoqee.com.log
 	-rw-rw-r-- 1 zengjr zengjr     3024 Dec 16 17:32 hadoop-zengjr-datanode-hadoop-zengjr.xiaoqee.com.out
+
+
