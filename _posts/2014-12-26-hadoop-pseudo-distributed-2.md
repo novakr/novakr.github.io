@@ -5,6 +5,15 @@ title: hadoop之伪分布式（Pseudo-Distributed）模式2
 categories: hadoop
 tags:  hadoop
 ---
+在HDFS上目录结构建议
+
+	/user/用户名/mr/程序名/输入目录
+	/user/用户名/mr/程序名/输出目录
+
+	/user/zengjr/mr/
+	                            wordcount/
+	                                                /input
+	                                                /output
 
 ##关于HDFS文件系统的一些命令
 
@@ -48,7 +57,7 @@ tags:  hadoop
 	[-text [-ignoreCrc] <src> ...]
 	[-touchz <path> ...]
 	[-usage [cmd ...]]
-新建文件夹，上传文件，
+##新建文件夹，上传文件，
 
 	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -mkdir /user
 	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -mkdir /user/zengjr
@@ -72,6 +81,8 @@ tags:  hadoop
 	-rw-r--r-- 1 zengjr supergroup 844 2014-11-30 23:17 /user/zengjr/input/mapred-site.xml
 	-rw-r--r-- 1 zengjr supergroup 794 2014-11-30 23:17 /user/zengjr/input/yarn-site.xml
 
+##grep程序运行
+
 	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0.jar grep /user/zengjr/input output 'dfs[a-z.]+'
 	结果查看（或者文件系统中查看50070端口，50090）
 	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -ls /user/zengjr/output
@@ -81,3 +92,41 @@ tags:  hadoop
 	    [zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -cat /user/zengjr/output/part-r-00000
 	1       dfsadmin
 	1       dfs.replication
+
+##wordcount程序运行
+
+	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -ls /user/zengjr 
+	Found 4 items 
+	drwxr-xr-x - zengjr supergroup 0 2014-12-01 00:19 /user/zengjr/grep-temp-550059281 
+	drwxr-xr-x - zengjr supergroup 0 2014-11-30 23:17 /user/zengjr/input 
+	drwxr-xr-x - zengjr supergroup 0 2014-11-30 23:28 /user/zengjr/output 
+	drwxr-xr-x - zengjr supergroup 0 2014-12-01 00:34 /user/zengjr/output3 
+	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -mkdir /user/zengjr/mr 
+	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -mkdir /user/zengjr/mr/wordcount 
+	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -mkdir /user/zengjr/mr/wordcount/input 
+	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -mkdir /user/zengjr/mr/wordcount/output
+	
+	[zengjr@hadoop-zengjr test-datas]$ vi wc.input 
+	hadoop hello 
+	hadoop mapreduce 
+	zengjr hdfs 
+	world yarn 
+	hadoop dfs
+	
+	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -put test-datas/wc.input /user/zengjr/mr/wordcount/input/
+#删除output，运行的时候不能有这个 目录不然会报错
+	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -rm -r -f /user/zengjr/mr/wordcount/output 
+	14/12/01 01:05:21 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes. 
+	Deleted /user/zengjr/mr/wordcount/output
+	
+	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/yarn jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0.jar wordcount /user/zengjr/mr/wordcount/input /user/zengjr/mr/wordcount/output
+	
+	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -text /user/zengjr/mr/wordcount/output/part* 
+	dfs 1 
+	hadoop 3 
+	hdfs 1 
+	hello 1 
+	mapreduce 1 
+	world 1 
+	yarn 1 
+	zengjr 1
