@@ -1,5 +1,5 @@
 ---
-date: 2014/12/26 16:03:47 
+date: 2014/12/26 19:29:33 
 layout: post
 title: hadoop之伪分布式（Pseudo-Distributed）模式2
 categories: hadoop
