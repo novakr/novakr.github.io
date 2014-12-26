@@ -114,7 +114,7 @@ tags:  hadoop
 	hadoop dfs
 	
 	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -put test-datas/wc.input /user/zengjr/mr/wordcount/input/
-#删除output，运行的时候不能有这个 目录不然会报错
+	#删除output，运行的时候不能有这个 目录不然会报错
 	[zengjr@hadoop-zengjr hadoop-2.5.0]$ bin/hdfs dfs -rm -r -f /user/zengjr/mr/wordcount/output 
 	14/12/01 01:05:21 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes. 
 	Deleted /user/zengjr/mr/wordcount/output
