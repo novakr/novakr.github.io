@@ -1,7 +1,7 @@
 ---
 date: 2015/3/9 15:13:02  
 layout: post
-title: 单机模式安装
+title: zookeeper单机模式安装
 categories: hadoop
 tags:  zookeeper
 ---
